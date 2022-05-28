@@ -1,1 +1,8 @@
 - `noEmit` tells TS to not write any files to disk. Set this to `true` if you need it for typechecking only.
+- TS is a superset of JS. All JS is valid TS.
+- Adding types (or type info) to JS code by JSDoc syntax.
+- If a library from NPM registry doesn't support TS:
+    - You can build the type information yourself.
+    - Or use TS support built by others. Example: https://github.com/DefinitelyTyped/DefinitelyTyped.
+- .d.ts files are typescript declaration files.
+- 
