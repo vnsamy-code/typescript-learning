@@ -1,9 +1,9 @@
 {
     "include": [
-        "**.ts"
+        "src/**/*.ts"
     ],
     "compilerOptions": {
         "target": "ES6",
-        "outDir": "dist",
+        "outDir": "dist"
     }
 }
