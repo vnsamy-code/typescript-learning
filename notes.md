@@ -1,0 +1,1 @@
+- `noEmit` tells TS to not write any files to disk. Set this to `true` if you need it for typechecking only.
