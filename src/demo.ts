@@ -1,5 +1,5 @@
-class Contact {
-    id;
-    name;
-    birthDate;
-}
+// class Contact {
+//     id;
+//     name;
+//     birthDate;
+// }}
