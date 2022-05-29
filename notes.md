@@ -6,7 +6,13 @@
     - Or use TS support built by others. Example: https://github.com/DefinitelyTyped/DefinitelyTyped.
 - .d.ts files are typescript declaration files.
 - `birthDate?: Date | number | string; ==> This is the pipe syntax and allows you to define more than one type to a field.
-- 
+- A `typealias` could be an alternative to `enum` in TypeScript.
+    - Example: `type TContactStatus = "active" | "inactive" | "new"` and `// enum
+enum ContactStatus {
+    Active,
+    Inactive,
+    New
+}` do the same job.
 
 **Commands**:
 
