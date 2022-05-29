@@ -5,4 +5,11 @@
     - You can build the type information yourself.
     - Or use TS support built by others. Example: https://github.com/DefinitelyTyped/DefinitelyTyped.
 - .d.ts files are typescript declaration files.
+- `birthDate?: Date | number | string; ==> This is the pipe syntax and allows you to define more than one type to a field.
+- 
+
+**Commands**:
+
+- `tsc init` initializes a new tsconfig.json file.
+- `tsc` to compile TS file.
 - 
