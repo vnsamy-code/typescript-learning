@@ -13,6 +13,8 @@ enum ContactStatus {
     Inactive,
     New
 }` do the same job.
+- A `union` type represents that a type can be one of the types piped |. Example: `nameOrContact: string | Contact`.
+- `typeof` operator ensures that the same parameter structure is passed.
 
 **Commands**:
 

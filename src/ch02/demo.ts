@@ -15,6 +15,15 @@ enum ContactStatus {
 // The same enum can be rewritten to contain all the states with string;
 type TContactStatus = "active" | "inactive" | "new";
 
+// Keyof operator example
+type ContactField = keyof Contact;
+
+// typeof operator example
+var range = { min: 1, max: 100 };
+function printRange(params) {
+    console.log("min from: ".concat(params.min, " and max to: ").concat(params.max));
+}
+
 // custom types
 interface Contact extends Address {
     id: number;
@@ -34,7 +43,18 @@ interface Address {
 
 type AddressableCOntact = Contact & Address;
 
+function getFieldValue(source, property: ContactField) {
+    return source[property];
+}
+
+// generic keyOf example
+function tGetFieldValue<T>(source: T, property: keyof T) {
+    return source[property];
+}
+
 // -----------------------------------------------------Usage area-----------------------------------------------------
+
+console.log('hello...');
 
 const primaryContact: Contact = {
     id: 12345,
@@ -61,3 +81,14 @@ const addressableContact: AddressableCOntact = {
     region: 'region',
     postalCode: '560016'
 }
+
+const value = getFieldValue(primaryContact, "name");
+console.log(value);
+
+const tValue = tGetFieldValue(primaryContact, "postalCode");
+console.log(value);
+
+const looseObject = tGetFieldValue({ min: 10, max: 100 }, "min");
+
+// ❌ printRange({ x: 1000, y: 1000 }); - This won't work since the property names are different.
+printRange({ min: 900, max: 1000 });
