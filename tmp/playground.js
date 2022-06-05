@@ -15,3 +15,24 @@ function printRange(params) {
 }
 // ❌ getRange({ x: 1000, y: 1000 }); - This won't work since the property names are different.
 printRange({ min: 900, max: 1000 });
+// Record type example
+var license = {
+    'testuser': 12345
+};
+license.anotherTestUser = 099876;
+console.log("License: ".concat(JSON.stringify(license)));
+// Record type with keyof
+var eContact = {
+    id: 1244,
+    name: 'Cavin'
+};
+var person = {
+    name: 'Person-Cavin'
+};
+var employee = {
+    name: 'Student-Cavin'
+};
+function getFieldValueAcceptingRecord(obj) {
+    console.log("Record input is: ".concat(JSON.stringify(obj)));
+}
+getFieldValueAcceptingRecord({ "name": eContact });

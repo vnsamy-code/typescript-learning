@@ -52,6 +52,21 @@ function tGetFieldValue<T>(source: T, property: keyof T) {
     return source[property];
 }
 
+// indexed typeof example
+interface TYContact {
+    name: Contact["name"];      // The type of name is the type of of the `name` property in `Contact` object.
+}
+
+// Record type example
+const license: Record<string, number> = {
+    'testuser': 12345
+};
+license.anotherTestUser = 099876;
+
+// Partial example
+type pContact = Partial<Record<keyof Contact, string>>; // hover over to see all are optional.
+
+
 // -----------------------------------------------------Usage area-----------------------------------------------------
 
 console.log('hello...');

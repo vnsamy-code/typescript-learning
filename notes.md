@@ -15,6 +15,8 @@ enum ContactStatus {
 }` do the same job.
 - A `union` type represents that a type can be one of the types piped |. Example: `nameOrContact: string | Contact`.
 - `typeof` operator ensures that the same parameter structure is passed.
+- `Record` type helps define multiple acceptable types. 
+- Partial, Omit, Pick, Required - Use these if you want to modify existing types.
 
 **Commands**:
 
