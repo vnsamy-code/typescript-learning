@@ -1,5 +1,7 @@
 // -----------------------------------------------------Definition area-----------------------------------------------------
 
+import { type } from "jquery";
+
 // new type alias
 type ContactName = string;
 
@@ -67,6 +69,26 @@ license.anotherTestUser = 099876;
 type pContact = Partial<Record<keyof Contact, string>>; // hover over to see all are optional.
 
 
+// mapped type
+type AppConfig = {
+    username: string,
+    layout: string
+};
+
+type AppPermissions = {
+    changeUsername: boolean,
+    changeLayout: boolean
+};
+
+/*
+    1.  For every property added to `AppConfig` there must be a corresponding bool flag in `AppPermissions`.
+    2.  To solve this use `mapped` types.
+*/
+
+type MAppPermissions = {
+    [Property in keyof AppConfig as `change${Capitalize<Property>}`]: boolean
+};
+
 // -----------------------------------------------------Usage area-----------------------------------------------------
 
 console.log('hello...');
@@ -107,3 +129,8 @@ const looseObject = tGetFieldValue({ min: 10, max: 100 }, "min");
 
 // ❌ printRange({ x: 1000, y: 1000 }); - This won't work since the property names are different.
 printRange({ min: 900, max: 1000 });
+
+const permissions: MAppPermissions = {
+    changeLayout: true,
+    changeUsername: false
+};
