@@ -36,3 +36,29 @@ function getFieldValueAcceptingRecord(obj) {
     console.log("Record input is: ".concat(JSON.stringify(obj)));
 }
 getFieldValueAcceptingRecord({ "name": eContact });
+function printUserDetails(user) {
+    console.log("===> NAME: ".concat(user.name));
+}
+printUserDetails({ name: 's/w dev' });
+// class implementing interface
+var AppType;
+(function (AppType) {
+    AppType[AppType["Web"] = 0] = "Web";
+    AppType[AppType["Mobile"] = 1] = "Mobile";
+    AppType[AppType["Desktop"] = 2] = "Desktop";
+})(AppType || (AppType = {}));
+var Application = /** @class */ (function () {
+    function Application(version, type, canDeployRemote) {
+        this.canDeployRemote = canDeployRemote;
+        this.version = version;
+        this.type = type;
+    }
+    Application.prototype.printDeploymentOption = function () {
+        console.log("Application can be deployed: ".concat(this.canDeployRemote ? 'Remotely' : 'On-prem'));
+    };
+    return Application;
+}());
+var webApp = new Application('1.2', AppType.Web, true);
+webApp.printDeploymentOption();
+var mobileApp = new Application('3.7', AppType.Mobile, false);
+mobileApp.printDeploymentOption();

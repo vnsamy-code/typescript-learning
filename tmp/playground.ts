@@ -67,3 +67,45 @@ function getFieldValueAcceptingRecord(obj: Record<keyof Person, typeof person>) 
 }
 
 getFieldValueAcceptingRecord({ "name": eContact });
+
+interface Developer extends Person {
+
+}
+
+function printUserDetails(user: Developer) {
+    console.log(`===> NAME: ${user.name}`);
+}
+
+printUserDetails({ name: 's/w dev' });
+
+// class implementing interface
+
+enum AppType {
+    Web,
+    Mobile,
+    Desktop
+}
+
+interface Deployment {
+    canDeployRemote: boolean
+}
+
+class Application implements Deployment {
+    version: string
+    type: AppType
+
+    constructor(version: string, type: AppType, readonly canDeployRemote: boolean) {
+        this.version = version;
+        this.type = type;
+    }
+
+    printDeploymentOption() {
+        console.log(`Application can be deployed: ${this.canDeployRemote ? 'Remotely' : 'On-prem'}`);
+    }
+}
+
+const webApp = new Application('1.2', AppType.Web, true);
+webApp.printDeploymentOption();
+
+const mobileApp = new Application('3.7', AppType.Mobile, false);
+mobileApp.printDeploymentOption();
